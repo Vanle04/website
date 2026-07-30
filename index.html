@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TỈNH — Cà phê ủ lạnh cho người chạy deadline</title>
+    <meta name="description"
+        content="TỈNH - Cà phê lon ủ lạnh (cold brew) đậm vị nguyên bản, giao lạnh siêu tốc 2H. Uống phát, tỉnh liền!">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Use Archivo Black cho typography nặng, ấn tượng, và Inter cho nội dung đọc -->
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* Vanilla CSS - Brutalist/Modern Yellow & Black */
+        :root {
+            --bg-color: #0d0d0d;
+            --text-main: #ffffff;
+            --primary-yellow: #fcee0a;
+            /* Electric yellow */
+            --dark-gray: #1a1a1a;
+            --font-heavy: 'Archivo Black', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Utility classes */
+        .text-yellow {
+            color: var(--primary-yellow);
+        }
+
+        .bg-yellow {
+            background-color: var(--primary-yellow);
+            color: var(--bg-color);
+        }
+
+        .uppercase {
+            text-transform: uppercase;
+        }
+
+        .heavy-font {
+            font-family: var(--font-heavy);
+            font-weight: 400;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Buttons */
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-yellow);
+            color: var(--bg-color);
+            font-family: var(--font-heavy);
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            padding: 18px 36px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            transform: skew(-10deg);
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-button span {
+            display: inline-block;
+            transform: skew(10deg);
+            /* Counter skew để chữ thẳng */
+        }
+
+        .cta-button:hover {
+            background-color: #fff;
+            box-shadow: 5px 5px 0px var(--primary-yellow);
+            transform: skew(-10deg) translateY(-2px);
+        }
+
+        /* Section 1: HERO */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            padding: 100px 0 60px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -20%;
+            width: 60%;
+            height: 100%;
+            background: var(--primary-yellow);
+            transform: skew(-15deg);
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .hero-text {
+            flex: 1 1 500px;
+            padding-right: 40px;
+        }
+
+        .kicker {
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            display: inline-block;
+            border-bottom: 2px solid var(--primary-yellow);
+            padding-bottom: 5px;
+        }
+
+        .hero-title {
+            font-size: clamp(3.5rem, 8vw, 6.5rem);
+            line-height: 1.05;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-desc {
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            max-width: 500px;
+            opacity: 0.9;
+        }
+
+        .hero-img-container {
+            flex: 1 1 400px;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-img-container img {
+            max-width: 100%;
+            height: auto;
+            max-height: 80vh;
+            position: relative;
+            z-index: 2;
+            filter: drop-shadow(15px 25px 35px rgba(0, 0, 0, 0.8));
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-15px) rotate(2deg);
+            }
+
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+        }
+
+        /* Mobile Hero Fixes */
+        @media (max-width: 900px) {
+            .hero::before {
+                right: -50%;
+                width: 150%;
+                height: 60%;
+                top: auto;
+                bottom: -10%;
+                transform: skewY(-10deg);
+            }
+
+            .hero-text {
+                padding-right: 0;
+                margin-bottom: 40px;
+            }
+
+            .hero-title {
+                font-size: 3.5rem;
+            }
+        }
+
+        /* Section 2: Pain Point */
+        .pain-points {
+            padding: 100px 0;
+            background-color: var(--dark-gray);
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            text-align: center;
+            margin-bottom: 60px;
+            line-height: 1.1;
+        }
+
+        .pain-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .pain-card {
+            background: var(--bg-color);
+            padding: 40px 30px;
+            border: 2px solid #333;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .pain-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-yellow);
+        }
+
+        .pain-icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+
+        .pain-text {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .pain-conclusion {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        /* Section 3: USPs */
+        .usps {
+            padding: 100px 0;
+            background: var(--bg-color);
+            overflow: hidden;
+        }
+
+        .usp-list {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .usp-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 30px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 40px;
+        }
+
+        .usp-number {
+            font-size: 5rem;
+            color: var(--primary-yellow);
+            line-height: 0.9;
+            min-width: 140px;
+        }
+
+        .usp-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 600px) {
+            .usp-item {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .usp-number {
+                font-size: 4rem;
+            }
+        }
+
+        /* Section 4: Variants */
+        .variants {
+            padding: 100px 0;
+            background-color: var(--primary-yellow);
+            color: var(--bg-color);
+        }
+
+        .variant-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .variant-card {
+            background: var(--bg-color);
+            color: var(--text-main);
+            padding: 50px 20px;
+            text-align: center;
+            position: relative;
+            border: 4px solid var(--bg-color);
+            transition: border-color 0.3s;
+        }
+
+        .variant-card:hover {
+            border-color: #fff;
+        }
+
+        .variant-card img {
+            height: 280px;
+            object-fit: contain;
+            margin-bottom: 25px;
+            transition: transform 0.4s ease;
+            filter: drop-shadow(5px 10px 15px rgba(0, 0, 0, 0.5));
+        }
+
+        .variant-card:hover img {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .variant-name {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            color: var(--primary-yellow);
+            letter-spacing: 1px;
+        }
+
+        .v-nhẹ {
+            color: #fdf5c9;
+        }
+
+        .v-hẳn {
+            color: var(--primary-yellow);
+        }
+
+        .v-sinh {
+            color: #ff3300;
+        }
+
+        .variant-desc {
+            font-size: 1rem;
+            opacity: 0.85;
+            margin-bottom: 15px;
+        }
+
+        /* Section 5: Offer */
+        .offer {
+            padding: 100px 0;
+            text-align: center;
+            background: repeating-linear-gradient(-45deg,
+                    #0d0d0d,
+                    #0d0d0d 10px,
+                    #141414 10px,
+                    #141414 20px);
+        }
+
+        .offer-box {
+            border: 6px dashed var(--primary-yellow);
+            background-color: var(--bg-color);
+            padding: 60px 30px;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            box-shadow: 20px 20px 0px rgba(252, 238, 10, 0.2);
+        }
+
+        .offer-price {
+            font-size: 3.5rem;
+            margin: 20px 0;
+        }
+
+        .offer-price strike {
+            font-size: 1.8rem;
+            color: #888;
+            margin-right: 15px;
+        }
+
+        .offer-list {
+            list-style: none;
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+        }
+
+        .offer-list li {
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        /* Section 6: Form */
+        .form-section {
+            padding: 100px 0;
+            background-color: var(--dark-gray);
+        }
+
+        .form-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: var(--bg-color);
+            padding: 60px;
+            border-top: 8px solid var(--primary-yellow);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: var(--primary-yellow);
+            font-size: 1.1rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 18px;
+            background: #1a1a1a;
+            border: 2px solid #333;
+            color: #fff;
+            font-size: 1rem;
+            font-family: var(--font-body);
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-yellow);
+            background: #222;
+        }
+
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            background: #1a1a1a;
+            padding: 20px;
+            border: 2px solid #333;
+        }
+
+        .radio-label {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+
+        .radio-label input {
+            width: 22px;
+            height: 22px;
+            accent-color: var(--primary-yellow);
+        }
+
+        .submit-btn {
+            width: 100%;
+            margin-top: 20px;
+            text-align: center;
+            font-size: 1.4rem;
+            padding: 24px;
+        }
+
+        @media (max-width: 600px) {
+            .form-container {
+                padding: 40px 20px;
+            }
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 0 40px;
+            text-align: center;
+            border-top: 1px solid #222;
+        }
+
+        .footer-logo {
+            font-size: 2.5rem;
+            color: var(--primary-yellow);
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+        }
+
+        .footer-info {
+            opacity: 0.6;
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- SECTION 1: HERO -->
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <span class="kicker text-yellow uppercase">Cà phê ủ lạnh cho người chạy deadline</span>
+                <h1 class="hero-title heavy-font">UỐNG PHÁT,<br><span class="text-yellow">TỈNH LIỀN!</span></h1>
+                <p class="hero-desc">Ngán cà phê pha sẵn ngọt gắt khé cổ? Thử ngay Cold Brew 100% Robusta Đắk Lắk ủ 18
+                    tiếng. Đậm vị nguyên bản, giao lạnh siêu tốc 2H. Mở nắp là "lên nòng" chiến deadline ngay!</p>
+                <a href="#order-form" class="cta-button"><span>⚡ Đặt Trước Ngay - Giảm 20%</span></a>
+            </div>
+            <div class="hero-img-container">
+                <img src="./Asset/lon-tinh-han.png" alt="Lon Tỉnh Hẳn">
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: PAIN POINT -->
+    <section class="pain-points">
+        <div class="container">
+            <h2 class="section-title heavy-font uppercase">BẠN ĐANG "NGÁP NGẮN NGÁP DÀI"<br><span
+                    class="text-yellow">GIỮA RỪNG DEADLINE?</span></h2>
+            <div class="pain-grid">
+                <div class="pain-card">
+                    <div class="pain-icon">🧋❌</div>
+                    <p class="pain-text">Trà sữa thì buồn ngủ, cà phê siêu thị thì ngọt gắt khé cổ?</p>
+                </div>
+                <div class="pain-card">
+                    <div class="pain-icon">📅😵</div>
+                    <p class="pain-text">Họp hành liên miên từ sáng đến chiều, não bộ "đình công" cần F5 khẩn cấp?</p>
+                </div>
+                <div class="pain-card">
+                    <div class="pain-icon">🦉🕰️</div>
+                    <p class="pain-text">2h sáng, deadline chực chờ mà hai mắt đã sụp xuống báo động đỏ?</p>
+                </div>
+            </div>
+            <p class="pain-conclusion text-yellow">👉 Bạn cần một cú hích. Không phải đường, mà là caffeine nguyên chất.
+            </p>
+        </div>
+    </section>
+
+    <!-- SECTION 3: USPs -->
+    <section class="usps">
+        <div class="container">
+            <h2 class="section-title heavy-font uppercase">TỈNH — <span class="text-yellow">Vũ khí bí mật</span> để sống
+                sót</h2>
+            <div class="usp-list">
+                <div class="usp-item">
+                    <div class="usp-number heavy-font">100%</div>
+                    <div class="usp-content">
+                        <h3 class="heavy-font uppercase">Robusta Đắk Lắk</h3>
+                        <p>Tuyển chọn khắt khe. Đậm đà, bừng tỉnh mọi giác quan.</p>
+                    </div>
+                </div>
+                <div class="usp-item">
+                    <div class="usp-number heavy-font">18H</div>
+                    <div class="usp-content">
+                        <h3 class="heavy-font uppercase">Ủ Lạnh Chậm</h3>
+                        <p>Phương pháp Cold Brew cho hậu vị êm mượt, không chua, không gắt. KHÔNG chất bảo quản.</p>
+                    </div>
+                </div>
+                <div class="usp-item">
+                    <div class="usp-number heavy-font">2H</div>
+                    <div class="usp-content">
+                        <h3 class="heavy-font uppercase">Giao Lạnh Nội Thành</h3>
+                        <p>Lon mát lạnh buốt tay, bật nắp tu ực ực ngay không cần pha đá lách cách.</p>
+                    </div>
+                </div>
+                <div class="usp-item">
+                    <div class="usp-number heavy-font">MAX</div>
+                    <div class="usp-content">
+                        <h3 class="heavy-font uppercase">Minh Bạch Caffeine</h3>
+                        <p>Mức độ "tỉnh" in to, rõ ràng trên từng lon. Chọn đúng đô, không lo ép tim!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: VARIANTS -->
+    <section class="variants">
+        <div class="container">
+            <h2 class="section-title heavy-font uppercase" style="color: var(--bg-color);">BẠN CẦN TỈNH ĐẾN MỨC
+                NÀO?<br>CHỌN ĐÔ ĐI!</h2>
+            <div class="variant-grid">
+                <div class="variant-card">
+                    <img src="./Asset/lon-tinh-nhe.png" alt="Tỉnh Nhẹ">
+                    <h3 class="variant-name heavy-font uppercase v-nhẹ">1. Tỉnh Nhẹ</h3>
+                    <p class="variant-desc"><strong>Thành phần:</strong> Cold Brew Sữa Yến Mạch</p>
+                    <p class="variant-desc"><strong>Đặc điểm:</strong> Caffeine nhẹ nhàng.</p>
+                    <p>Cho buổi sáng thong thả check mail, khởi động ngày mới êm ái mà không sợ "say".</p>
+                </div>
+                <div class="variant-card" style="border: 4px solid var(--primary-yellow);">
+                    <img src="./Asset/lon-tinh-han.png" alt="Tỉnh Hẳn">
+                    <h3 class="variant-name heavy-font uppercase v-hẳn">2. Tỉnh Hẳn</h3>
+                    <p class="variant-desc"><strong>Thành phần:</strong> Cold Brew Đen Truyền Thống</p>
+                    <p class="variant-desc"><strong>Đặc điểm:</strong> Tiêu chuẩn, đậm đà 100% năng lượng.</p>
+                    <p>Cho chuỗi ngày họp hành liên miên, não cần tập trung cao độ để gánh team.</p>
+                </div>
+                <div class="variant-card">
+                    <img src="./Asset/lon-hoi-sinh.png" alt="Hồi Sinh">
+                    <h3 class="variant-name heavy-font uppercase v-sinh">3. Hồi Sinh</h3>
+                    <p class="variant-desc"><strong>Thành phần:</strong> Double Shot Cold Brew</p>
+                    <p class="variant-desc"><strong>Đặc điểm:</strong> Đô cực mạnh, nạp phát ăn ngay.</p>
+                    <p>Dành riêng cho những đêm 2h sáng cày deadline sinh tử. Cứu rỗi linh hồn đang ngái ngủ.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: OFFER -->
+    <section class="offer">
+        <div class="container">
+            <div class="offer-box">
+                <h2 class="section-title heavy-font uppercase" style="margin-bottom: 20px;">COMBO "SỐNG SÓT" — CỨU
+                    DEADLINE TRONG TÍCH TẮC!</h2>
+                <p style="font-size: 1.2rem;">Giá bán lẻ: 29.000đ / lon (250ml)</p>
+
+                <div class="offer-price heavy-font text-yellow">
+                    <strike>174.000đ</strike> 149.000đ <span
+                        style="font-size:1.5rem; font-family:var(--font-body); color:#fff; font-weight:normal;">/ Lốc 6
+                        Lon</span>
+                </div>
+
+                <ul class="offer-list">
+                    <li>✅ FREESHIP Nội thành siêu tốc</li>
+                    <li class="text-yellow">🔥 GIẢM NGAY 20% cho khách Pre-order tuần này!</li>
+                    <li>🎁 TẶNG KÈM: Bộ Sticker Độc Quyền "Sống Sót Qua Deadline"</li>
+                </ul>
+
+                <a href="#order-form" class="cta-button"><span>🔥 TÔI MUỐN PRE-ORDER NGAY 🔥</span></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: FORM -->
+    <section class="form-section" id="order-form">
+        <div class="container">
+            <div class="form-container">
+                <h2 class="heavy-font uppercase"
+                    style="font-size: 2.8rem; margin-bottom: 5px; color: var(--primary-yellow); line-height: 1;">ĐIỀN
+                    THÔNG TIN</h2>
+                <h3 class="heavy-font uppercase" style="font-size: 1.8rem; margin-bottom: 30px; color: #fff;">CHỜ NGÀY
+                    "HỒI SINH"</h3>
+                <p style="margin-bottom: 30px; opacity: 0.9;">Để lại thông tin để giữ ưu đãi Giảm 20% + Sticker. Hàng sẽ
+                    được giao siêu tốc, mát lạnh đến tận tay!</p>
+
+                <form id="orderForm">
+                    <div class="form-group">
+                        <label>Tên "đồng âm" chạy deadline (Họ và tên):</label>
+                        <input type="text" name="HoTen" class="form-control" required placeholder="Nhập tên của bạn...">
+                    </div>
+                    <div class="form-group">
+                        <label>Số điện thoại "ting ting":</label>
+                        <input type="tel" name="SoDienThoai" class="form-control" required
+                            placeholder="Nhập số điện thoại...">
+                    </div>
+                    <div class="form-group">
+                        <label>Địa chỉ nhận hàng (Giao lạnh 2h):</label>
+                        <textarea name="DiaChi" class="form-control" rows="3" required
+                            placeholder="Nhập địa chỉ nhận hàng..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Chọn vũ khí (Lốc 6 lon):</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="Combo" value="Tỉnh Nhẹ" required> Lốc 6 Tỉnh Nhẹ
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="Combo" value="Tỉnh Hẳn"> Lốc 6 Tỉnh Hẳn (Best-seller)
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="Combo" value="Hồi Sinh"> Lốc 6 Hồi Sinh (Đô mạnh)
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="Combo" value="Mix Vị"> Lốc 6 Mix Vị (Trải nghiệm cả 3)
+                            </label>
+                        </div>
+                    </div>
+                    <button type="submit" class="cta-button submit-btn"><span id="submitBtnText">🚀 CHỐT ĐƠN! GIAO SỰ
+                            TỈNH TÁO CHO TÔI!</span></button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 7: FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo heavy-font uppercase">TỈNH — Uống phát, tỉnh liền.</div>
+            <p class="footer-info">Hotline cấp cứu: 09xx.xxx.xxx (Hỗ trợ đơn gấp nội thành)</p>
+            <p class="footer-info">Email: hello@tinhcoldbrew.vn</p>
+            <p class="footer-info" style="margin-top: 20px;">[Facebook] • [Instagram] • [TikTok]</p>
+            <p class="footer-info" style="margin-top: 10px; font-size: 0.8rem;">Chính sách giao hàng | Chính sách bảo
+                mật</p>
+        </div>
+    </footer>
+
+    <script>
+        // Đã kết nối với Web App Google Apps Script
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxLqfTlukLagwA3BqXIsWCY9PYqtUWpkP_QCYQMuX_2I_y3Z-isoC3anA7-zTA2BFOU/exec';
+        const form = document.getElementById('orderForm');
+        const btnText = document.getElementById('submitBtnText');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+
+            btnText.innerHTML = 'ĐANG GỬI ĐƠN... ⏳';
+            form.querySelector('button').disabled = true;
+
+            fetch(scriptURL, { method: 'POST', body: new FormData(form), mode: 'no-cors' })
+                .then(response => {
+                    alert('Cảm ơn đồng âm! Đơn hàng đã được ghi nhận. Chuẩn bị tinh thần đón bão caffeine!');
+                    form.reset();
+                    btnText.innerHTML = '🚀 CHỐT ĐƠN! GIAO SỰ TỈNH TÁO CHO TÔI!';
+                    form.querySelector('button').disabled = false;
+                })
+                .catch(error => {
+                    alert('Lỗi gửi đơn hàng. Vui lòng thử lại sau!');
+                    console.error('Error!', error.message);
+                    btnText.innerHTML = '🚀 CHỐT ĐƠN! GIAO SỰ TỈNH TÁO CHO TÔI!';
+                    form.querySelector('button').disabled = false;
+                });
+        });
+    </script>
+</body>
+
+</html>
