@@ -1,0 +1,4 @@
+name = "website"
+compatibility_date = "2024-08-05"
+assets = { directory = "./BaiTap" }
+pages_build_output_dir = "./BaiTap"
